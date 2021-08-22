@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>home</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
 <h1>ToDoList</h1>
+<form method="post" action="/" th:object="${formModel}">
+    <tr>
+        <td><label>todo</label></td>
+        <td><input type="text" name="todo" th:valu="${data}"></td>
+    </tr>
+    <tr>
+        <td><input type="submit"></td>
+    </tr>
+</form>
+
+<table border="1">
+    <tr>
+        <th>番号</th>
+        <th>todo</th>
+    </tr>
+    <tr th:each="obj : ${data}">
+        <td th:text="${obj.id}"></td>
+
+    </tr>
+</table>
 </body>
 </html>
